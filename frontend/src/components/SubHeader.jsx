@@ -9,7 +9,7 @@ import axios from "axios";
 import { AiOutlineMenu } from "react-icons/ai";
 
 
-const Header = () => {
+const SubHeader = () => {
   let [data2, setData] = useState([]);
   const {
     currentcolor,
@@ -23,8 +23,8 @@ const Header = () => {
     setScreenSize,
   } = useStateContext();
   useEffect(() => {
-fetchData();
-fetchUser()
+    fetchData();
+    fetchUser();
   }, []);
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
@@ -37,61 +37,57 @@ fetchUser()
   }, []);
 
   console.log(screenSize);
-  
- useEffect(() => {
-   if (screenSize <= 1032) {
-     setIsModalOpened(false);
-   } else {
-     setIsModalOpened(true);
-   }
- 
- }, [screenSize]);
 
+  useEffect(() => {
+    if (screenSize <= 1032) {
+      setIsModalOpened(false);
+    } else {
+      setIsModalOpened(true);
+    }
+  }, [screenSize]);
 
   const config = {
     headers: {
       Authorization: "Bearer " + localStorage.getItem("token"),
     },
   };
-   const fetchUser = async () => {
-     try {
-       axios
-         .get("http://localhost:3000/api/v1/tasks/user", config)
-         .then((response) => {
-           const data = response.data.username;
-           setUser(data);
-         })
-         .catch((error) => {
-           console.log(error);
-         });
-     } catch (e) {
-       console.log(e);
-     }
-   };
+  const fetchUser = async () => {
+    try {
+      axios
+        .get("http://localhost:3000/api/v1/tasks/user", config)
+        .then((response) => {
+          const data = response.data.username;
+          setUser(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
-   const fetchData = async () => {
-     try {
-       axios
-         .get("http://localhost:3000/api/v1/tasks", config)
-         .then((response) => {
-           const data = response.data.task;
-           setData(data);
-         })
-         .catch((error) => {
-           console.log(error);
-         });
-     } catch (e) {
-       console.log(e);
-     }
-   };
+  const fetchData = async () => {
+    try {
+      axios
+        .get("http://localhost:3000/api/v1/tasks", config)
+        .then((response) => {
+          const data = response.data.task;
+          setData(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
-   console.log(user);
-   const handleAutentication = () => {
-     localStorage.clear();
-     fetchData(); 
-   
-   };
-
+  console.log(user);
+  const handleAutentication = () => {
+    localStorage.clear();
+    fetchData();
+  };
 
   return (
     <Component isToggled={isToggled}>
@@ -108,17 +104,17 @@ fetchUser()
           >
             <AiOutlineMenu />
           </Cancel>
-          <img src={hero} alt="" />
+        
           <Link to="/login">
             <button
               style={{
                 fontFamily: `${font}`,
-               
+
                 backgroundColor: `${currentcolor}`,
                 borderRadius: "20px",
               }}
               onClick={handleAutentication}
-             className= 'button'
+              className="button"
             >
               {user ? "Sign Out" : "Sign In"}
             </button>
@@ -127,9 +123,9 @@ fetchUser()
       </HeaderWrapper>
     </Component>
   );
-}
+};
 
-export default Header
+export default SubHeader
 
 
 
@@ -241,3 +237,4 @@ const Cancel = styled.div`
     background: ${(props) => (props.isToggled ? "#2f302c" : "white")};
   }
 `;
+

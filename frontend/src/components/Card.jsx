@@ -161,26 +161,39 @@ const Component = styled(motion.div)`
 
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
-
+  @media (max-width: 480px) {
+    width: 9.7rem;
+    margin: 1.7px;
+    height: 9rem;
+  }
   p {
     padding: 14px;
     font-weight: 600;
+    @media (max-width: 480px) {
+      padding: 4px;
+    }
   }
 `;
 
 const Control = styled.div`
-    display: flex;
-justify-content: flex-end;
-padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
 
-position: absolute;
-bottom: 0;
-right: 0;
-.control {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  .control {
     margin: 10px;
     font-size: 20px;
-   
-cursor: pointer;
 
-}
+    cursor: pointer;
+    @media (max-width: 480px) {
+      margin: 4px;
+      font-size: 14px;
+    }
+  }
+  @media (max-width: 480px) {
+    padding: 4px;
+  }
 `;

@@ -145,7 +145,9 @@ const Component = styled(motion.div)`
     align-items: center;
     height: 70vh;
     z-index: 2;
-   
+    @media (max-width: 480px) {
+      height: 30vh;
+    }
   }
 `;
 
@@ -158,7 +160,10 @@ const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  
   justify-content: center;
+  justify-content: flex-start;
   z-index: 30;
   top: 10px;
   left: 10px;
@@ -169,31 +174,48 @@ const BodyWrapper = styled.div`
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(30px);
   height: auto;
+
+  p {
+    @media (max-width: 480px) {
+      font-size: 13px;
+    }
+  }
+
   span {
-   
     font-size: 20px;
     font-weight: 800;
+  }
+  @media (max-width: 480px) {
+   padding: 1vh;
   }
 `;
 
 const InputWrapper = styled.div`
-
   padding: 2vh;
   display: flex;
   align-items: center;
   width: 60%;
   justify-content: space-between;
+
+  @media (max-width: 480px) {
+    width: 90%;
+  }
   input {
     padding: 10px;
     outline: none;
-   font-size: 17px;
-   font-weight: 500;
+    font-size: 17px;
+    font-weight: 500;
     width: 84%;
     border-radius: 3px;
+    @media (max-width: 480px) {
+      width: 82%;
+      padding: 4px;
+      font-size: 14px;
+    }
     :focus {
- 
-  border-color: #0049e7;
-    box-shadow: 0 0 3px 2px rgba(17, 80, 228, 0.5);}
+      border-color: #0049e7;
+      box-shadow: 0 0 3px 2px rgba(17, 80, 228, 0.5);
+    }
   }
   button {
     width: 44px;
@@ -202,12 +224,19 @@ const InputWrapper = styled.div`
     background-color: #a1a1e2;
 
     z-index: 1;
-   outline: none;
- 
-  img {
-    width: 30px;
+    outline: none;
+    @media (max-width: 480px) {
+      width: 30px;
+      height: 30px;
+    }
+    img {
+      width: 30px;
+
+      @media (max-width: 480px) {
+        width: 20px;
+      }
+    }
   }
-}
 `;
 
 const Glass = styled.div`
@@ -233,4 +262,8 @@ const CardWrapper = styled(motion.div)`
   align-items: center;
   justify-content: center;
   padding: 20px;
+  @media (max-width: 480px) {
+    padding: 4px;
+    padding-top: 20px;
+  }
 `;

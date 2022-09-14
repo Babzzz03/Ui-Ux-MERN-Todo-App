@@ -5,7 +5,7 @@ import { useStateContext } from "../contexts/ContextProvider";
 import { Link, NavLink } from "react-router-dom";
 import {BsFillSunFill} from 'react-icons/bs';
 import { GiMoon } from "react-icons/gi";
-
+import { MdOutlineCancel } from "react-icons/md";
 import {
   AiTwotoneFilter, AiOutlineFontColors,
   AiOutlineBgColors,
@@ -30,6 +30,9 @@ const [searchOption, setSearchOption] = useState(true)
     setIsToggled,
     todoData,
     setData,
+    screenSize,
+    setIsModalOpened,
+    isModalOpened,
   } = useStateContext();
 
      const config = {
@@ -170,6 +173,15 @@ fetchPending()
           {" "}
           <img src={logo} alt="logo" />{" "}
         </Logo>
+        {screenSize < 1032 && (
+          <Cancel>
+            <MdOutlineCancel
+              onClick={() => {
+                setIsModalOpened(!isModalOpened);
+              }}
+            />
+          </Cancel>
+        )}
       </Title>
       <Line currentcolor={currentcolor}></Line>
       <Filtersettings>
@@ -187,7 +199,6 @@ fetchPending()
               />
             </Button>
           ))}
-        
         </Filter>
       </Filtersettings>
       <Line1 currentcolor={currentcolor}></Line1>
@@ -258,9 +269,21 @@ const Container = styled.div`
   font-family: ${(props) => props.font};
   display: flex;
   flex-direction: column;
- padding-right: 10px;
+  padding-right: 10px;
+  position: relative;
+  @media (max-width: 1032px) {
+    width: 49vh;
+  }
 `;
-
+const Cancel = styled.div`
+position: absolute;
+top: 6px;
+right: 0;
+svg {
+  font-size: 24px;
+  cursor: pointer;
+}
+`;
 
 const move = keyframes`
 0% { transform: translateY(-2px)}

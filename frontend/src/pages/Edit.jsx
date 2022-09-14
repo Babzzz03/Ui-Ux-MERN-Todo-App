@@ -63,6 +63,7 @@ console.log(fetchEditSpecific);
        )
        .then(function (response) {
          console.log(response);
+         navigate(`/`);
        });
     
    } catch (error) {

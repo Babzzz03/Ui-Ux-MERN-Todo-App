@@ -14,21 +14,29 @@ import Login from './components/Login';
 import CreateAccount from './components/CreateAccount';
 
 function App() {
-    const { font, setFont, name, setName, currentcolor, setCurrentColor, 
-    isToggled,
-    setIsToggled, } =
-      useStateContext();
+    const {
+      font,
+
+      isToggled,
+
+      isModalOpened,
+      screenSize,
+    } = useStateContext();
   return (
     <>
       <GlobalStyle isToggled={isToggled} />
 
       <BrowserRouter>
         <Container font={font} isToggled={isToggled}>
-          <Sidebarcontainer isToggled={isToggled}>
+          <Sidebarcontainer
+            isToggled={isToggled}
+            isModalOpened={isModalOpened}
+            screenSize={screenSize}
+          >
             <Sidebar />
           </Sidebarcontainer>
 
-          <Maincontainer>
+          <Maincontainer isModalOpened={isModalOpened} screenSize={screenSize}>
             <Routes>
               {/* Home  */}
               <Route path="/" element={<Home />} />
@@ -58,26 +66,38 @@ const Container = styled.div`
   width: 100vw;
   font-family: ${(props) => props.font};
  
-  color: ${(props) => props.isToggled ? 'white' : '' };
+  color: ${(props) => (props.isToggled ? "white" : "")};
+  .open {
+    width: 100vw!important;
+  }
 `;
 
 const Sidebarcontainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+
+  z-index: 1000;
+
   overflow-y: scroll;
   overflow-x: hidden;
   bottom: 0;
-  width: 25vw;
+
+
+  width: ${(props) =>
+    props.isModalOpened ? `${props.screenSize > 1032 ? "25vw" : "52vh"}` : "0"};
   height: 100vh;
   background-color: ${(props) => (props.isToggled ? "#262724" : "whitesmoke")};
 `;
 
 const Maincontainer = styled.div`
-  width: 75vw;
+
+
+  width: ${(props) =>
+    props.isModalOpened && props.screenSize > 1032 ? "75vw" : "100vw"};
+
   position: relative;
   right: 0px;
   left: 0;
- 
 `;
 

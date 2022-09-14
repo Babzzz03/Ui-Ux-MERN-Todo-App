@@ -8,6 +8,8 @@ export const ContextProvider = ({ children }) => {
      const  [todoData, setData] = useState([]);
       const [user, setUser] = useState("");
       const [isToggled, setIsToggled] = useState(false);
+       const [isModalOpened, setIsModalOpened] = useState(true);
+        const [screenSize, setScreenSize] = useState(undefined);
   return (
     <StateContext.Provider
       value={{
@@ -25,6 +27,10 @@ export const ContextProvider = ({ children }) => {
         setUser,
         isToggled,
         setIsToggled,
+        isModalOpened,
+        setIsModalOpened,
+        screenSize,
+        setScreenSize,
       }}
     >
       {children}

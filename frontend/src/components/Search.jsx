@@ -30,7 +30,7 @@ const Search = () => {
       const fetchSpecificData = async () => {
         try {
           axios
-            .get(`http://localhost:3000/api/v1/tasks/${id.id}`, config)
+            .get(`https://fierce-gray-turtleneck.cyclic.app/api/v1/tasks/${id.id}`, config)
             .then((response) => {
               setFetchSpecific(response.data.cart);
             
@@ -48,7 +48,7 @@ const Search = () => {
            const fetchData = async () => {
              try {
                axios
-                 .get(`http://localhost:3000/api/v1/tasks/${id.id}`, config)
+                 .get(`https://fierce-gray-turtleneck.cyclic.app/api/v1/tasks/${id.id}`, config)
                  .then((response) => {
                    setData(response.data.cart);
                  })
@@ -65,7 +65,7 @@ const Search = () => {
 
     try {
       await axios
-        .delete(`http://localhost:3000/api/v1/tasks/${_id}`, config)
+        .delete(`https://fierce-gray-turtleneck.cyclic.app/api/v1/tasks/${_id}`, config)
         .then(function (response) {
           console.log(response);
         });

@@ -56,7 +56,7 @@ fetchUser()
    const fetchUser = async () => {
      try {
        axios
-         .get("http://localhost:3000/api/v1/tasks/user", config)
+         .get("https://fierce-gray-turtleneck.cyclic.app/api/v1/tasks/user", config)
          .then((response) => {
            const data = response.data.username;
            setUser(data);
@@ -72,7 +72,7 @@ fetchUser()
    const fetchData = async () => {
      try {
        axios
-         .get("http://localhost:3000/api/v1/tasks", config)
+         .get("https://fierce-gray-turtleneck.cyclic.app/api/v1/tasks", config)
          .then((response) => {
            const data = response.data.task;
            setData(data);

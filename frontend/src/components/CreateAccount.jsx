@@ -19,11 +19,14 @@ const CreateAccount = () => {
        e.preventDefault();
 
        axios
-         .post(`http://localhost:3000/api/v1/tasks/register`, {
-           name,
-           email,
-           password,
-         })
+         .post(
+           `https://fierce-gray-turtleneck.cyclic.app/api/v1/tasks/register`,
+           {
+             name,
+             email,
+             password,
+           }
+         )
          .then((response) => {
            localStorage.setItem("token", response.data.token);
            alert("Welcome");

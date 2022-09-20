@@ -44,7 +44,7 @@ const [searchOption, setSearchOption] = useState(true)
      const fetchData = async () => {
        try {
          axios
-           .get("http://localhost:3000/api/v1/tasks", config)
+           .get("https://fierce-gray-turtleneck.cyclic.app/api/v1/tasks", config)
            .then((response) => {
              const data = response.data.task;
              setData(data);
@@ -60,7 +60,7 @@ const [searchOption, setSearchOption] = useState(true)
   const fetchPending = async () => {
        try {
          axios
-           .get("http://localhost:3000/api/v1/tasks", config)
+           .get("https://fierce-gray-turtleneck.cyclic.app/api/v1/tasks", config)
            .then((response) => {
              const data = response.data.task;
              const filterPending = data.filter((pending) =>
@@ -80,7 +80,7 @@ const [searchOption, setSearchOption] = useState(true)
   const fetchCompleted = async () => {
     try {
       axios
-        .get("http://localhost:3000/api/v1/tasks", config)
+        .get("https://fierce-gray-turtleneck.cyclic.app/api/v1/tasks", config)
         .then((response) => {
           const data = response.data.task;
           const filterCompleted = data.filter((pending) =>

@@ -35,7 +35,7 @@ const Card = ({data}) => {
       const fetchData = async () => {
         try {
           axios
-            .get("http://localhost:3000/api/v1/tasks", config)
+            .get("https://fierce-gray-turtleneck.cyclic.app/api/v1/tasks", config)
             .then((response) => {
               const data = response.data.task;
               setData(data);
@@ -53,7 +53,7 @@ const Card = ({data}) => {
   async function postDelete(_id, e) {
     try {
       await axios
-        .delete(`http://localhost:3000/api/v1/tasks/${_id}`, config)
+        .delete(`https://fierce-gray-turtleneck.cyclic.app/api/v1/tasks/${_id}`, config)
         .then(function (response) {
           console.log(response);
         });
@@ -82,7 +82,7 @@ navigate(`/edit/${_id}`);
           setCompleted(!completed);
           await axios
             .patch(
-              `http://localhost:3000/api/v1/tasks/${_id}`,
+              `https://fierce-gray-turtleneck.cyclic.app/api/v1/tasks/${_id}`,
               { completed },
               config
             )

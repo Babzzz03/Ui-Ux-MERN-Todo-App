@@ -15,14 +15,16 @@ const Login = () => {
          e.preventDefault();
 
          axios
-           .post(`http://localhost:3000/api/v1/tasks/login`, {
-             email,
-             password,
-           })
+           .post(
+             `https://fierce-gray-turtleneck.cyclic.app/api/v1/tasks/login`,
+             {
+               email,
+               password,
+             }
+           )
            .then((response) => {
              localStorage.setItem("token", response.data.token);
              alert("Welcome back");
-           
            })
            .catch((err) => {
              // The request was made and the server responded with a status code

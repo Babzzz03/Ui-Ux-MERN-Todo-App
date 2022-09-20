@@ -35,7 +35,7 @@ const Edit = () => {
   const fetchSpecificData = async () => {
     try {
       axios
-        .get(`http://localhost:3000/api/v1/tasks/${id.id}`, config)
+        .get(`https://fierce-gray-turtleneck.cyclic.app/api/v1/tasks/${id.id}`, config)
         .then((response) => {
          setFetchEditSpecific(response.data.cart);
           setCurrentState(response.data.cart.completed);
@@ -58,7 +58,7 @@ console.log(fetchEditSpecific);
    try {
      await axios
        .patch(
-         `http://localhost:3000/api/v1/tasks/${id.id}`,
+         `https://fierce-gray-turtleneck.cyclic.app/api/v1/tasks/${id.id}`,
          { todo:edited, completed:currentState },
          config
        )
@@ -75,7 +75,7 @@ console.log(fetchEditSpecific);
     const fetchData = async () => {
       try {
         axios
-          .get(`http://localhost:3000/api/v1/tasks/${id.id}`, config)
+          .get(`https://fierce-gray-turtleneck.cyclic.app/api/v1/tasks/${id.id}`, config)
           .then((response) => {
             setData(response.data.cart);
           })
@@ -91,7 +91,7 @@ console.log(fetchEditSpecific);
   async function postDelete(_id, e) {
     try {
       await axios
-        .delete(`http://localhost:3000/api/v1/tasks/${_id}`, config)
+        .delete(`https://fierce-gray-turtleneck.cyclic.app/api/v1/tasks/${_id}`, config)
         .then(function (response) {
           console.log(response);
         });

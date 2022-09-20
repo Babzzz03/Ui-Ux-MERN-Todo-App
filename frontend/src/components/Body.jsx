@@ -41,7 +41,7 @@ useEffect(() => {
   const fetchData = async () => {
     try {
       axios
-        .get("https://fierce-gray-turtleneck.cyclic.app/v1/tasks", config)
+        .get("https://fierce-gray-turtleneck.cyclic.app/api/v1/tasks", config)
         .then((response) => {
           const data = response.data.task;
           setData(data);
@@ -59,7 +59,7 @@ useEffect(() => {
 
             try {
               await axios.post(
-                "https://fierce-gray-turtleneck.cyclic.app/v1/tasks",
+                "https://fierce-gray-turtleneck.cyclic.app/api/v1/tasks",
                 {
                   todo,
                 },

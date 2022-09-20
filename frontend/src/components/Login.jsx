@@ -77,7 +77,7 @@ const Container = styled.div`
     height: 100vh;
     width: 100vw;
     font-weight: 700;
-    z-index: 99;
+    z-index: 999;
     display: flex;
     justify-content: center;
     align-items: center;

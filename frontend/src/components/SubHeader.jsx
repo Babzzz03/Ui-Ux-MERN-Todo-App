@@ -139,7 +139,7 @@ const HeaderWrapper = styled.div`
   position: relative;
 
   height: 30vh;
-  width: 75vw;
+ 
   width: ${(props) =>
     props.isModalOpened && props.screenSize > 1032 ? "75vw" : "100vw"};
   @media (max-width: 480px) {

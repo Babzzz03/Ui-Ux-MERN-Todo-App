@@ -13,7 +13,7 @@ const path = require("path");
 
 const app = express();
 
- app.use(express.static("./frontend"));
+
 app.use(
   cors({
     origin: true,
@@ -35,7 +35,17 @@ app.get("/hello", (req, res) => {
 
 
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/frontend/build")));
 
+  app.get("*", (request, response) => {
+    response.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
+  });
+} else {
+  app.get("/", (req, res) => {
+    res.send("Api running");
+  });
+}
 
 
 
